@@ -91,6 +91,8 @@ right_hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
+  projection_evaluator: joints(right_finger1_joint_base,right_finger1_joint1)
+  longest_valid_segment_fraction: 0.05
 left_hand:
   planner_configs:
     - SBLkConfigDefault
@@ -104,3 +106,5 @@ left_hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
+  projection_evaluator: joints(left_finger1_joint_base,left_finger1_joint1)
+  longest_valid_segment_fraction: 0.05
