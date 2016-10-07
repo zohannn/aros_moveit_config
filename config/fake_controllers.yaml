@@ -71,3 +71,7 @@ controller_list:
       - right_finger2_joint2
       - right_finger3_joint1
       - right_finger3_joint2
+      
+initial:
+  - group: arms
+    pose:  park_arms
