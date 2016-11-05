@@ -52,60 +52,6 @@ planner_configs:
     max_nearest_neighbors: 10  # use k nearest neighbors. default: 10
   PRMstarkConfigDefault:
     type: geometric::PRMstar
-    
-## --- Custom configurations
-# RRT
-  RRTkConfig1:
-    type: geometric::RRT
-    range: 0.05  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
-    goal_bias: 0.1  # When close to goal select goal, with this probability? default: 0.05
-  RRTkConfig2:
-    type: geometric::RRT
-    range: 0.1  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
-    goal_bias: 0.01  # When close to goal select goal, with this probability? default: 0.05
-# RRT Connect
-  RRTConnectkConfig1:
-    type: geometric::RRTConnect
-    range: 0.05  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
-  RRTConnectkConfig2:
-    type: geometric::RRTConnect
-    range: 0.1  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
-# RRT star
-  RRTstarkConfig1:
-    type: geometric::RRTstar
-    optimization_objective: MaximizeMinClearanceObjective
-    range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
-    goal_bias: 0.05  # When close to goal select goal, with this probability? default: 0.05
-    delay_collision_checking: 1  # Stop collision checking as soon as C-free parent found. default 1
-  RRTstarkConfig2:
-    type: geometric::RRTstar
-    optimization_objective: StateCostIntegralObjective
-    range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
-    goal_bias: 0.05  # When close to goal select goal, with this probability? default: 0.05
-    delay_collision_checking: 1  # Stop collision checking as soon as C-free parent found. default 1
-  RRTstarkConfig3:
-    type: geometric::RRTstar
-    optimization_objective: MinimaxObjective
-    range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
-    goal_bias: 0.05  # When close to goal select goal, with this probability? default: 0.05
-    delay_collision_checking: 1  # Stop collision checking as soon as C-free parent found. default 1
-# PRM
-  PRMkConfig1:
-    type: geometric::PRM
-    max_nearest_neighbors: 20  # use k nearest neighbors. default: 10
-    PRMkConfig2:
-    type: geometric::PRM
-    max_nearest_neighbors: 5  # use k nearest neighbors. default: 10
-# PRM star
-  PRMstarkConfig1:
-    type: geometric::PRMstar
-    optimization_objective: MaximizeMinClearanceObjective
-  PRMstarkConfig2:
-    type: geometric::PRMstar
-    optimization_objective: StateCostIntegralObjective
-  PRMstarkConfig3:
-    type: geometric::PRMstar
-    optimization_objective: MinimaxObjective
 right_arm:
   planner_configs:
     - SBLkConfigDefault
@@ -119,24 +65,6 @@ right_arm:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3    
 left_arm:
   planner_configs:
     - SBLkConfigDefault
@@ -150,24 +78,6 @@ left_arm:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
 right_hand:
   planner_configs:
     - SBLkConfigDefault
@@ -181,24 +91,6 @@ right_hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
   projection_evaluator: joints(right_finger1_joint_base,right_finger1_joint1)
   longest_valid_segment_fraction: 0.05
 left_hand:
@@ -214,24 +106,6 @@ left_hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
   projection_evaluator: joints(left_finger1_joint_base,left_finger1_joint1)
   longest_valid_segment_fraction: 0.05
 arms:
@@ -247,24 +121,6 @@ arms:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
 hands:
   planner_configs:
     - SBLkConfigDefault
@@ -278,24 +134,6 @@ hands:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
   projection_evaluator: joints(left_finger1_joint_base,left_finger1_joint1)
   longest_valid_segment_fraction: 0.05
 arms_hands:
@@ -311,24 +149,6 @@ arms_hands:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
 right_arm_hand:
   planner_configs:
     - SBLkConfigDefault
@@ -342,24 +162,6 @@ right_arm_hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
 left_arm_hand:
   planner_configs:
     - SBLkConfigDefault
@@ -373,21 +175,3 @@ left_arm_hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-    #custom configurations
-    # RRT
-    - RRTkConfig1
-    - RRTkConfig2
-    # RRT Connect
-    - RRTConnectkConfig1
-    - RRTConnectkConfig2
-    # RRT star
-    - RRTstarkConfig1
-    - RRTstarkConfig2
-    - RRTstarkConfig3
-    # PRM
-    - PRMkConfig1
-    - PRMkConfig2
-    # PRM star
-    - PRMstarkConfig1
-    - PRMstarkConfig2
-    - PRMstarkConfig3  
