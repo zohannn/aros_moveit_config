@@ -20,8 +20,8 @@
         <joint name="torso_to_right_arm0" />
         <joint name="right_arm7_to_right_hand_fts" />
         <joint name="right_hand_fts_to_right_hand_adapter" />
-        <joint name="right_hand_adapter_to_right_hand_barrett" />
         <joint name="right_hand_barrett_to_right_hand_sensor" />
+        <joint name="right_hand_adapter_to_right_hand_barrett" />
     </group>
     <group name="left_arm">
         <joint name="left_joint1" />
@@ -41,27 +41,25 @@
         <link name="right_finger1_base_link" />
         <link name="right_finger1_1_link" />
         <link name="right_finger1_2_link" />
-        <link name="right_finger1_tip_link" />
         <link name="right_finger2_base_link" />
         <link name="right_finger2_1_link" />
         <link name="right_finger2_2_link" />
-        <link name="right_finger2_tip_link" />
         <link name="right_finger3_1_link" />
         <link name="right_finger3_2_link" />
-        <link name="right_finger3_tip_link" />
+        <link name="right_hand_sensor_link" />
+        <link name="right_hand_barrett_link" />
     </group>
     <group name="left_hand">
         <link name="left_finger1_base_link" />
         <link name="left_finger1_1_link" />
         <link name="left_finger1_2_link" />
-        <link name="left_finger1_tip_link" />
         <link name="left_finger2_base_link" />
         <link name="left_finger2_1_link" />
         <link name="left_finger2_2_link" />
-        <link name="left_finger2_tip_link" />
         <link name="left_finger3_1_link" />
         <link name="left_finger3_2_link" />
-        <link name="left_finger3_tip_link" />
+        <link name="left_hand_sensor_link" />
+        <link name="left_hand_barrett_link" />
     </group>
     <group name="arms">
         <group name="right_arm" />
@@ -361,8 +359,8 @@
         <joint name="left_joint7" value="2.3" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="right_eef" parent_link="right_hand_sensor_link" group="right_hand" />
-    <end_effector name="left_eef" parent_link="left_hand_sensor_link" group="left_hand" />
+    <end_effector name="right_eef" parent_link="right_hand_sensor_link" group="right_hand" parent_group="right_arm" />
+    <end_effector name="left_eef" parent_link="left_hand_sensor_link" group="left_hand" parent_group="left_arm" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtual_joint" type="fixed" parent_frame="world_frame" child_link="base_link" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
@@ -377,14 +375,11 @@
     <disable_collisions link1="base_link" link2="left_finger1_1_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_finger1_2_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_finger1_base_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="left_finger1_tip_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_finger2_1_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_finger2_2_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="base_link" link2="left_hand_fts_link" reason="Never" />
@@ -401,14 +396,11 @@
     <disable_collisions link1="base_link" link2="right_arm7_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="base_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="base_link" link2="right_hand_fts_link" reason="Never" />
@@ -447,12 +439,10 @@
     <disable_collisions link1="left_arm1_link" link2="right_arm7_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm1_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_finger2_base_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm1_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm1_link" link2="right_hand_fts_link" reason="Never" />
@@ -473,14 +463,11 @@
     <disable_collisions link1="left_arm2_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm2_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm2_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm2_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm2_link" link2="right_hand_fts_link" reason="Never" />
@@ -504,14 +491,11 @@
     <disable_collisions link1="left_arm3_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm3_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm3_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm3_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm3_link" link2="right_hand_fts_link" reason="Never" />
@@ -524,14 +508,11 @@
     <disable_collisions link1="left_arm4_link" link2="left_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm4_link" link2="left_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm4_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm4_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="left_hand_fts_link" reason="Never" />
@@ -549,14 +530,11 @@
     <disable_collisions link1="left_arm4_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm4_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm4_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm4_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm4_link" link2="right_hand_fts_link" reason="Never" />
@@ -567,14 +545,11 @@
     <disable_collisions link1="left_arm5_link" link2="left_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm5_link" link2="left_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm5_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm5_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="left_hand_fts_link" reason="Never" />
@@ -592,14 +567,11 @@
     <disable_collisions link1="left_arm5_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm5_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm5_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm5_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm5_link" link2="right_hand_fts_link" reason="Never" />
@@ -609,14 +581,11 @@
     <disable_collisions link1="left_arm6_link" link2="left_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm6_link" link2="left_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm6_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm6_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="left_hand_fts_link" reason="Never" />
@@ -634,14 +603,11 @@
     <disable_collisions link1="left_arm6_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm6_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm6_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm6_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm6_link" link2="right_hand_fts_link" reason="Never" />
@@ -650,14 +616,11 @@
     <disable_collisions link1="left_arm7_link" link2="left_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm7_link" link2="left_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm7_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm7_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="left_hand_fts_link" reason="Adjacent" />
@@ -675,14 +638,11 @@
     <disable_collisions link1="left_arm7_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_arm7_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_arm7_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_arm7_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_arm7_link" link2="right_hand_fts_link" reason="Never" />
@@ -690,14 +650,11 @@
     <disable_collisions link1="left_arm7_link" link2="vision_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="left_finger1_2_link" reason="Adjacent" />
     <disable_collisions link1="left_finger1_1_link" link2="left_finger1_base_link" reason="Adjacent" />
-    <disable_collisions link1="left_finger1_1_link" link2="left_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="left_finger2_1_link" reason="Default" />
     <disable_collisions link1="left_finger1_1_link" link2="left_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_1_link" link2="left_finger2_tip_link" reason="User" />
     <disable_collisions link1="left_finger1_1_link" link2="left_finger3_1_link" reason="User" />
     <disable_collisions link1="left_finger1_1_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_1_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="left_hand_barrett_link" reason="User" />
     <disable_collisions link1="left_finger1_1_link" link2="left_hand_fts_link" reason="Never" />
@@ -711,7 +668,6 @@
     <disable_collisions link1="left_finger1_1_link" link2="right_arm7_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_1_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="right_finger2_base_link" reason="Never" />
@@ -721,14 +677,11 @@
     <disable_collisions link1="left_finger1_1_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger1_1_link" link2="right_hand_sensor_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="left_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_2_link" link2="left_finger1_tip_link" reason="Adjacent" />
     <disable_collisions link1="left_finger1_2_link" link2="left_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="left_finger2_2_link" reason="User" />
     <disable_collisions link1="left_finger1_2_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_2_link" link2="left_finger2_tip_link" reason="User" />
     <disable_collisions link1="left_finger1_2_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="left_finger3_2_link" reason="User" />
-    <disable_collisions link1="left_finger1_2_link" link2="left_finger3_tip_link" reason="User" />
     <disable_collisions link1="left_finger1_2_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="left_hand_barrett_link" reason="User" />
     <disable_collisions link1="left_finger1_2_link" link2="left_hand_fts_link" reason="Never" />
@@ -744,25 +697,19 @@
     <disable_collisions link1="left_finger1_2_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_2_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_2_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_2_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger1_2_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="left_finger1_base_link" link2="left_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="left_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="left_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_base_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_base_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="left_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="left_finger1_base_link" link2="left_hand_fts_link" reason="Never" />
@@ -779,59 +726,20 @@
     <disable_collisions link1="left_finger1_base_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_base_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_base_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_base_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="right_hand_sensor_link" reason="Never" />
     <disable_collisions link1="left_finger1_base_link" link2="vision_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_finger2_1_link" reason="User" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_finger2_2_link" reason="User" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_finger2_tip_link" reason="User" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_finger3_1_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_finger3_2_link" reason="User" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_finger3_tip_link" reason="User" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_hand_fts_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="left_hand_sensor_link" reason="User" />
-    <disable_collisions link1="left_finger1_tip_link" link2="pan_tilt_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_arm1_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_arm2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_arm3_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_arm4_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_arm5_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_arm6_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_arm7_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger1_1_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger1_2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger1_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger2_1_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger2_2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger2_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger3_1_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_finger3_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_hand_fts_link" reason="Never" />
-    <disable_collisions link1="left_finger1_tip_link" link2="right_hand_sensor_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="left_finger2_2_link" reason="Adjacent" />
     <disable_collisions link1="left_finger2_1_link" link2="left_finger2_base_link" reason="Adjacent" />
-    <disable_collisions link1="left_finger2_1_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="left_finger3_1_link" reason="User" />
     <disable_collisions link1="left_finger2_1_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_1_link" link2="left_finger3_tip_link" reason="User" />
     <disable_collisions link1="left_finger2_1_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="left_hand_fts_link" reason="Never" />
@@ -847,23 +755,18 @@
     <disable_collisions link1="left_finger2_1_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_1_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_1_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_1_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger2_1_link" link2="right_hand_sensor_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="left_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_2_link" link2="left_finger2_tip_link" reason="Adjacent" />
     <disable_collisions link1="left_finger2_2_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="left_finger3_2_link" reason="User" />
-    <disable_collisions link1="left_finger2_2_link" link2="left_finger3_tip_link" reason="User" />
     <disable_collisions link1="left_finger2_2_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="left_hand_fts_link" reason="Never" />
@@ -879,21 +782,16 @@
     <disable_collisions link1="left_finger2_2_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_2_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_2_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_finger3_1_link" reason="Never" />
-    <disable_collisions link1="left_finger2_2_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger2_2_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="left_finger2_base_link" link2="left_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="left_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="left_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_base_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="left_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="left_finger2_base_link" link2="left_hand_fts_link" reason="Never" />
@@ -909,50 +807,16 @@
     <disable_collisions link1="left_finger2_base_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_base_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_base_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_base_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger2_base_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="left_finger3_1_link" reason="User" />
-    <disable_collisions link1="left_finger2_tip_link" link2="left_finger3_2_link" reason="User" />
-    <disable_collisions link1="left_finger2_tip_link" link2="left_finger3_tip_link" reason="User" />
-    <disable_collisions link1="left_finger2_tip_link" link2="left_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="left_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="left_hand_fts_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="left_hand_sensor_link" reason="User" />
-    <disable_collisions link1="left_finger2_tip_link" link2="neck_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="pan_tilt_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_arm2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_arm3_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_arm4_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_arm5_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_arm6_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_arm7_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger1_1_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger1_2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger1_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger2_1_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger2_2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger2_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger3_1_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_finger3_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_hand_fts_link" reason="Never" />
-    <disable_collisions link1="left_finger2_tip_link" link2="right_hand_sensor_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="left_finger3_2_link" reason="Adjacent" />
-    <disable_collisions link1="left_finger3_1_link" link2="left_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="left_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="left_finger3_1_link" link2="left_hand_fts_link" reason="Never" />
@@ -968,19 +832,15 @@
     <disable_collisions link1="left_finger3_1_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger3_1_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger3_1_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger3_1_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger3_1_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="left_finger3_2_link" link2="left_finger3_tip_link" reason="Adjacent" />
     <disable_collisions link1="left_finger3_2_link" link2="left_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="left_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="left_hand_fts_link" reason="Never" />
@@ -995,44 +855,14 @@
     <disable_collisions link1="left_finger3_2_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger3_2_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger3_2_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger3_2_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="left_finger3_2_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="left_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="left_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="left_hand_fts_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="left_hand_sensor_link" reason="User" />
-    <disable_collisions link1="left_finger3_tip_link" link2="neck_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_arm1_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_arm2_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_arm3_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_arm4_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_arm5_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_arm6_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_arm7_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger1_1_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger1_2_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger1_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger2_1_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger2_2_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger2_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger3_1_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_finger3_tip_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_hand_fts_link" reason="Never" />
-    <disable_collisions link1="left_finger3_tip_link" link2="right_hand_sensor_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="left_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="left_hand_adapter_link" link2="left_hand_fts_link" reason="Adjacent" />
     <disable_collisions link1="left_hand_adapter_link" link2="left_hand_sensor_link" reason="Never" />
@@ -1046,14 +876,11 @@
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_adapter_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_adapter_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_hand_adapter_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_hand_adapter_link" link2="right_hand_fts_link" reason="Never" />
@@ -1070,14 +897,11 @@
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_barrett_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_barrett_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_hand_barrett_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_hand_barrett_link" link2="right_hand_fts_link" reason="Never" />
@@ -1092,14 +916,11 @@
     <disable_collisions link1="left_hand_fts_link" link2="right_arm7_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_fts_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_fts_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_hand_fts_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_hand_fts_link" link2="right_hand_fts_link" reason="Never" />
@@ -1114,14 +935,11 @@
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_sensor_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="left_hand_sensor_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="left_hand_sensor_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="left_hand_sensor_link" link2="right_hand_fts_link" reason="Never" />
@@ -1136,8 +954,6 @@
     <disable_collisions link1="neck_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="neck_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="neck_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="neck_link" link2="right_finger1_tip_link" reason="Never" />
-    <disable_collisions link1="neck_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="neck_link" link2="torso_link" reason="Never" />
     <disable_collisions link1="neck_link" link2="vision_link" reason="Adjacent" />
     <disable_collisions link1="pan_tilt_link" link2="right_arm0_link" reason="Default" />
@@ -1149,7 +965,6 @@
     <disable_collisions link1="pan_tilt_link" link2="right_arm7_link" reason="Never" />
     <disable_collisions link1="pan_tilt_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="pan_tilt_link" link2="right_finger1_2_link" reason="Never" />
-    <disable_collisions link1="pan_tilt_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="pan_tilt_link" link2="torso_link" reason="Adjacent" />
     <disable_collisions link1="pan_tilt_link" link2="vision_link" reason="Default" />
     <disable_collisions link1="right_arm0_link" link2="right_arm1_link" reason="Adjacent" />
@@ -1180,14 +995,11 @@
     <disable_collisions link1="right_arm4_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="right_arm4_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_arm4_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_arm4_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="right_arm4_link" link2="right_hand_fts_link" reason="Never" />
@@ -1198,14 +1010,11 @@
     <disable_collisions link1="right_arm5_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="right_arm5_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_arm5_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_arm5_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="right_arm5_link" link2="right_hand_fts_link" reason="Never" />
@@ -1215,14 +1024,11 @@
     <disable_collisions link1="right_arm6_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="right_arm6_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_arm6_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_arm6_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="right_arm6_link" link2="right_hand_fts_link" reason="Never" />
@@ -1230,116 +1036,75 @@
     <disable_collisions link1="right_arm7_link" link2="right_finger1_1_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_finger1_2_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="right_arm7_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_arm7_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_arm7_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="right_arm7_link" link2="right_hand_fts_link" reason="Adjacent" />
     <disable_collisions link1="right_arm7_link" link2="right_hand_sensor_link" reason="Never" />
     <disable_collisions link1="right_finger1_1_link" link2="right_finger1_2_link" reason="Adjacent" />
     <disable_collisions link1="right_finger1_1_link" link2="right_finger1_base_link" reason="Adjacent" />
-    <disable_collisions link1="right_finger1_1_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="right_finger1_1_link" link2="right_finger2_1_link" reason="Default" />
     <disable_collisions link1="right_finger1_1_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="right_finger1_1_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_finger1_1_link" link2="right_finger2_tip_link" reason="User" />
     <disable_collisions link1="right_finger1_1_link" link2="right_finger3_1_link" reason="User" />
     <disable_collisions link1="right_finger1_1_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_finger1_1_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_finger1_1_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger1_1_link" link2="right_hand_barrett_link" reason="User" />
     <disable_collisions link1="right_finger1_1_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger1_1_link" link2="right_hand_sensor_link" reason="User" />
     <disable_collisions link1="right_finger1_2_link" link2="right_finger1_base_link" reason="Never" />
-    <disable_collisions link1="right_finger1_2_link" link2="right_finger1_tip_link" reason="Adjacent" />
     <disable_collisions link1="right_finger1_2_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="right_finger1_2_link" link2="right_finger2_2_link" reason="User" />
     <disable_collisions link1="right_finger1_2_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_finger1_2_link" link2="right_finger2_tip_link" reason="User" />
     <disable_collisions link1="right_finger1_2_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_finger1_2_link" link2="right_finger3_2_link" reason="User" />
-    <disable_collisions link1="right_finger1_2_link" link2="right_finger3_tip_link" reason="User" />
     <disable_collisions link1="right_finger1_2_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger1_2_link" link2="right_hand_barrett_link" reason="User" />
     <disable_collisions link1="right_finger1_2_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger1_2_link" link2="right_hand_sensor_link" reason="User" />
-    <disable_collisions link1="right_finger1_base_link" link2="right_finger1_tip_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_finger2_1_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_finger2_2_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_finger1_base_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_finger1_base_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="right_finger1_base_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger1_base_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_finger2_2_link" reason="User" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_finger2_tip_link" reason="User" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_finger3_1_link" reason="Never" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_finger3_2_link" reason="User" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_finger3_tip_link" reason="User" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_hand_fts_link" reason="Never" />
-    <disable_collisions link1="right_finger1_tip_link" link2="right_hand_sensor_link" reason="User" />
     <disable_collisions link1="right_finger2_1_link" link2="right_finger2_2_link" reason="Adjacent" />
     <disable_collisions link1="right_finger2_1_link" link2="right_finger2_base_link" reason="Adjacent" />
-    <disable_collisions link1="right_finger2_1_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="right_finger2_1_link" link2="right_finger3_1_link" reason="User" />
     <disable_collisions link1="right_finger2_1_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_finger2_1_link" link2="right_finger3_tip_link" reason="User" />
     <disable_collisions link1="right_finger2_1_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger2_1_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="right_finger2_1_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger2_1_link" link2="right_hand_sensor_link" reason="User" />
     <disable_collisions link1="right_finger2_2_link" link2="right_finger2_base_link" reason="Never" />
-    <disable_collisions link1="right_finger2_2_link" link2="right_finger2_tip_link" reason="Adjacent" />
     <disable_collisions link1="right_finger2_2_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_finger2_2_link" link2="right_finger3_2_link" reason="User" />
-    <disable_collisions link1="right_finger2_2_link" link2="right_finger3_tip_link" reason="User" />
     <disable_collisions link1="right_finger2_2_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger2_2_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="right_finger2_2_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger2_2_link" link2="right_hand_sensor_link" reason="User" />
-    <disable_collisions link1="right_finger2_base_link" link2="right_finger2_tip_link" reason="Never" />
     <disable_collisions link1="right_finger2_base_link" link2="right_finger3_1_link" reason="Never" />
     <disable_collisions link1="right_finger2_base_link" link2="right_finger3_2_link" reason="Never" />
-    <disable_collisions link1="right_finger2_base_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_finger2_base_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger2_base_link" link2="right_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="right_finger2_base_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger2_base_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="right_finger2_tip_link" link2="right_finger3_1_link" reason="User" />
-    <disable_collisions link1="right_finger2_tip_link" link2="right_finger3_2_link" reason="User" />
-    <disable_collisions link1="right_finger2_tip_link" link2="right_finger3_tip_link" reason="User" />
-    <disable_collisions link1="right_finger2_tip_link" link2="right_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="right_finger2_tip_link" link2="right_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="right_finger2_tip_link" link2="right_hand_fts_link" reason="Never" />
-    <disable_collisions link1="right_finger2_tip_link" link2="right_hand_sensor_link" reason="User" />
     <disable_collisions link1="right_finger3_1_link" link2="right_finger3_2_link" reason="Adjacent" />
-    <disable_collisions link1="right_finger3_1_link" link2="right_finger3_tip_link" reason="Never" />
     <disable_collisions link1="right_finger3_1_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger3_1_link" link2="right_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="right_finger3_1_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger3_1_link" link2="right_hand_sensor_link" reason="User" />
-    <disable_collisions link1="right_finger3_2_link" link2="right_finger3_tip_link" reason="Adjacent" />
     <disable_collisions link1="right_finger3_2_link" link2="right_hand_adapter_link" reason="Never" />
     <disable_collisions link1="right_finger3_2_link" link2="right_hand_barrett_link" reason="Never" />
     <disable_collisions link1="right_finger3_2_link" link2="right_hand_fts_link" reason="Never" />
     <disable_collisions link1="right_finger3_2_link" link2="right_hand_sensor_link" reason="Never" />
-    <disable_collisions link1="right_finger3_tip_link" link2="right_hand_adapter_link" reason="Never" />
-    <disable_collisions link1="right_finger3_tip_link" link2="right_hand_barrett_link" reason="Never" />
-    <disable_collisions link1="right_finger3_tip_link" link2="right_hand_fts_link" reason="Never" />
-    <disable_collisions link1="right_finger3_tip_link" link2="right_hand_sensor_link" reason="User" />
     <disable_collisions link1="right_hand_adapter_link" link2="right_hand_barrett_link" reason="Adjacent" />
     <disable_collisions link1="right_hand_adapter_link" link2="right_hand_fts_link" reason="Adjacent" />
     <disable_collisions link1="right_hand_adapter_link" link2="right_hand_sensor_link" reason="Never" />
